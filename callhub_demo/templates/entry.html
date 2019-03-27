@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %}Fibonacci Demo{% endblock %}
+{% block content %}
+<br>
+<br>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <span class="anchor" id="formLogin"></span>
+    <div class="card card-outline-secondary">
+      <div class="card-header">
+        <h3 class="mb-0">Please enter the Nth term </h3>
+      </div>
+      <div class="card-body">
+        <form method="post" autocomplete="off" class="form" id="formLogin" name="formLogin" role="form">{% csrf_token %}
+          {{ form.errors }}
+          {% render_field form.number class="single-in form-control" placeholder="Nth term" %}
+          <br>
+          <input class="btn btn-success btn-lg float-right" type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

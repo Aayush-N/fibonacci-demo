@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<div class="container h-100">
+  <div class="row align-items-center h-100t ">
+    <div class="col-6 mx-auto">
+      <div class="jumbotron text-center">
+        <h1>Fibonacci Value: {{value}}</h1>
+        <h1>Time Taken: {{time|floatformat:-5}}</h1>
+        <p>Series starts with 1</p>
+        <a href="/" class="btn btn-primary btn-lg float-center">Go back</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

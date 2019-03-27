@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block content %}
 <div class="container-fluid">
   <h3>Nth Term of Fibonacci Series Demo</h3>
   <p>This is a Python/Django application that will display the Nth number in Fibonacci sequence.
@@ -19,9 +20,10 @@
   <hr>
   <h3>API Implementation</h3>
   <p>API exists at the url: <a href="/api/v1/fibonacci/">/api/v1/fibonacci/</a>. This accepts the POST JSON and gives the value and time taken as reponse.</p>
-</div>
 <hr>
 <h3>Admin Portal</h3>
 <a href="/admin">/admin</a>
 <h5>Username: admin</h5>
 <h5>Password: admin123</h5>
+</div>
+{% endblock %}

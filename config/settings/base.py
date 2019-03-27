@@ -43,8 +43,12 @@ USE_TZ = True
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PROJECT_DIR, 'callhub.db'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'callhub',                      
+        'USER': 'callhub_user',
+        'PASSWORD': 'callhub123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True

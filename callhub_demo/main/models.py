@@ -6,7 +6,7 @@ class FibonacciValue(models.Model):
     """
 
     # Stores the number (nth term)
-    number = models.IntegerField()
+    number = models.PositiveIntegerField()
 
     # This stores the value for a corresponding number 
     # As the values are very very large for large numbers we use a textfield

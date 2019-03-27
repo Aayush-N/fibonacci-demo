@@ -48,6 +48,9 @@ class FibonacciEntryView(FormView):
 		# Get the number from the form submitted by the user
 		number = form.cleaned_data['number']
 
+		#Store number into session for future use
+		self.request.session['number'] = number
+
 		# Start calculating the time
 		start_time = time.time()
 
@@ -63,7 +66,6 @@ class FibonacciEntryView(FormView):
 			value = data[0].value
 		except:
 			value = self.fibonacci_calculation(number)
-			print(value)
 			form.instance.value = value
 			create = form.save()
 
@@ -83,6 +85,9 @@ class DisplayFibonacciView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(DisplayFibonacciView, self).get_context_data(**kwargs)
+
+		# Get number from session
+		context['number'] = self.request.session['number']
 
 		# Get value from session
 		context['value'] = self.request.session['value']

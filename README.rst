@@ -1,7 +1,7 @@
-callhub demo
+Fibonacci Demo
 ============
 
-fibonacci sequence for callhub
+Finds the Nth term of Fibonacci sequence
 
 .. image:: https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg
      :target: https://github.com/pydanny/cookiecutter-django/
@@ -18,61 +18,35 @@ Moved to settings_.
 
 .. _settings: http://cookiecutter-django.readthedocs.io/en/latest/settings.html
 
-Basic Commands
+Introduction
+------------
+
+This is a Python/Django application that will display the Nth number in
+Fibonacci sequence. For instance, if N is 6 and the sequence starts with
+[1,1..] then it should display ‘8’ as the 6th element in the sequence.
+
+It also prints out the time taken to compute this answer.
+
+Also supports complete user management - Sign In/Sign Up, etc.
+
+
+Method of execution:
+
+-  Get the Nth term value from user.
+-  Check if the corresponding value for Nth term already exists in DB,
+   if it does, use it. This elimates the need to compute the value every
+   time even for the same numbers. **Improving performance
+   considerably.**
+-  If not, compute the value for the input and store it in DB for future
+   reference.
+-  Redirect to answer page and display Value as well as Time Taken.
+
 --------------
 
-Setting Up Your Users
-^^^^^^^^^^^^^^^^^^^^^
+API Implementation
+~~~~~~~~~~~~~~~~~~
 
-* To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+API exists at the url: `/api/v1/fibonacci/`_. This accepts the POST JSON
+and gives the value and time taken as reponse.
 
-* To create an **superuser account**, use this command::
-
-    $ python manage.py createsuperuser
-
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
-
-Type checks
-^^^^^^^^^^^
-
-Running type checks with mypy:
-
-::
-
-  $ mypy callhub_demo
-
-Test coverage
-^^^^^^^^^^^^^
-
-To run the tests, check your test coverage, and generate an HTML coverage report::
-
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
-
-Running tests with py.test
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-::
-
-  $ pytest
-
-Live reloading and Sass CSS compilation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Moved to `Live reloading and SASS compilation`_.
-
-.. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
-
-
-
-
-
-Deployment
-----------
-
-The following details how to deploy this application.
-
-
-
-
+.. _/api/v1/fibonacci/: /api/v1/fibonacci/
